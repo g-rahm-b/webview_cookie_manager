@@ -44,9 +44,7 @@ class WebviewCookieManager {
                           (result['expires'] * 1000).toInt());
                     }
                   } on FormatException catch (_) {
-                    c = Cookie(result['name'] ?? '',
-                        result['value'] ?? '');
-                      return c;
+                    return null;
                   }
                   return c;
                 })
@@ -98,7 +96,7 @@ class WebviewCookieManager {
   String removeInvalidCharacter(String value) {
     // Remove Invalid Character
     var valueModified = value.replaceAll('\\"', "'").replaceAll("\\", "");
-    //valueModified = valueModified.replaceAll(String.fromCharCode(32), "");
+    //valueModified = valueModified.replaceAll(String.fromCharCode(32), "&");
     return value;
   }
 }

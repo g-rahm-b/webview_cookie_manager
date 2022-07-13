@@ -97,6 +97,6 @@ class WebviewCookieManager {
     // Remove Invalid Character
     var valueModified = value.replaceAll('\\"', "'").replaceAll("\\", "");
     //valueModified = valueModified.replaceAll(String.fromCharCode(32), "");
-    return valueModified;
+    return value;
   }
 }

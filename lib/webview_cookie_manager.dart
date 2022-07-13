@@ -30,9 +30,9 @@ class WebviewCookieManager {
             : results
                 .map((Map result) {
                   Cookie? c;
-                  try {
+try {
                     c = Cookie(result['name'] ?? '',
-                        result['value'] ?? '')
+                        removeInvalidCharacter(result['value'] ?? ''))
                       // following values optionally work on iOS only
                       ..path = result['path']
                       ..domain = result['domain']
@@ -43,6 +43,8 @@ class WebviewCookieManager {
                       c.expires = DateTime.fromMillisecondsSinceEpoch(
                           (result['expires'] * 1000).toInt());
                     }
+                  } on FormatException catch (_) {
+                    
                   }
                   return c;
                 })

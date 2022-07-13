@@ -45,7 +45,7 @@ class WebviewCookieManager {
                     }
                   } on FormatException catch (_) {
                     c = Cookie(result['name'] ?? '',
-                        result['value'] ?? '')
+                        result['value'] ?? '');
                       return c;
                   }
                   return c;

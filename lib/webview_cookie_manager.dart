@@ -44,7 +44,8 @@ class WebviewCookieManager {
                           (result['expires'] * 1000).toInt());
                     }
                   } on FormatException catch (_) {
-                    c = null;
+                    c = Cookie(result['name'] ?? '',
+                        result['value'] ?? '');
                   }
                   return c;
                 })
